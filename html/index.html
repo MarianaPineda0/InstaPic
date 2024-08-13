@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaPIC</title>
+    <style>
+        body{
+            font-family: 'Arial Narrow', arial, sans-serif;
+            color: #023047;
+            background-color: #f1f1f1;
+            margin:0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header{
+            background-color: #219edc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main{
+            display: flex;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-box{
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+        }
+        .login-box h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-box input{
+            background-color: #fff;
+            border: 2px solid #219edc;
+            color: #023047;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;        
+        }
+        .login-box input:focus{
+            border-color: #fb8500;
+            outline: none;
+        }
+        .login-box a{
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>InstaPic</h1>
+    </header>
+    <main>
+        <div class = "login-box">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="username" placeholder="Nombre de Usuario"/>
+            <input type="password" id="password" placeholder="Contraseña" />
+            <a href="home.html">Ingresar</a> 
+            <a href="sign-up.html">Registrarse</a>
+        </div>
+        
+    </main>
+    <footer>
+        &copy; Derechos Reservados
+    </footer>
+</body>
+</html>
