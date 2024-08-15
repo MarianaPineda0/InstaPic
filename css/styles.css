@@ -1,0 +1,104 @@
+body{
+    font-family: 'Ubuntu', arial, sans-serif, 'Bungee Tint';
+    color: #023047;
+    background-color: #f1f1f1;
+    margin:0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header{
+    background-color: #219edc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+main{
+    display: flex;
+    flex-direction: column;  /* verificar que no haga daños*/
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.login-box{
+    display:flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+}
+.login-box h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.login-box input{
+    background-color: #fff;
+    border: 2px solid #219edc;
+    color: #023047;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;        
+}
+.login-box input:focus{
+    border-color: #fb8500;
+    outline: none;
+}
+.login-box a{
+    /*display: block;*/
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.login-box a:hover{
+    opacity: 0.7;
+}
+.primary{
+    background-color: #fb8500;
+}
+.secondary{
+    background-color: #7a5122;
+}
+footer{
+    background-color: #023047;
+    color:#fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between ;
+    padding: 40px;
+}
+footer ul{
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+}
+footer > ul > li{
+    list-style: none;
+}
+footer ul > li + li{
+    margin-left: 20px ;
+}
+.fab{
+    font-size: 30px;
+}
+#profile{
+    display: flex;
+    align-items: center;
+
+}
+#profile img{
+    width: 100px;
+    border-radius: 50px;
+    display: block;
+}
