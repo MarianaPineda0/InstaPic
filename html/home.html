@@ -10,53 +10,73 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
-    <title>Inicio</title>
+    <title>Inicio</title> 
 </head>
 <body>
-    <header>
-        <h1>InstaPIC</h1>
-        <ul>
-            <li>Inicio</li>
-            <li>Subir fotos</li>
-            <li>Buscar</li>
-            <li>Cerrar sesión</li>
-        </ul>
+    <header>  
+        <nav>        
+            <ul>
+                <li>InstaPIC</li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Subir fotos</a></li>
+                <li><a href="#">Buscar</a></li>
+                <li><a href="index.html">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+  
+       
     </header>
     <main>
 
         <section id="profile">
 
-            <div class="">
+            <div>
                 <img src="../images/avatar.jpg" alt="avatar"/>
-                Juana Perez
+                <span id="userName">Juana Pérez</span> 
             </div>
-            <div>Tienes 20 seguidores</div>
-            <div>Tienes 10 publicaciones</div>
-            <div>Tienes 1000 solicitudes</div>
+
+            <div>
+                <span>15</span>
+                <span>publicaciones</span>
+            </div>
+
+            <div>
+                <span>100</span>
+                <span>Seguidores</span>
+            </div>
+
+            <div>
+                <span>50</span>
+                <span>Solicitudes</span>
+            </div>
+
         </section>
+
         <section id="gallery">
-            <ul>
-                <li><img width="25px" src="../images/gallery3.jpeg"/></li>
-                <li><img width="25px" src="../images/gallery4.jpg"/></li>
-                <li><img width="25px" src="../images/gallery5.jpg"/></li>
-                <li><img width="25px" src="../images/gallery1.jpg"/></li>
-                <li><img width="25px" src="../images/gallery2.webp"/></li>
-                <li><img width="25px" src="../images/gallery0.jpg"/></li>
-                <li><img width="25px" src="../images/gallery6.jpg"/></li>
-                <li><img width="25px" src="../images/gallery7.jpg"/></li>
-                <li><img width="25px" src="../images/gallery8.webp"/></li>
-                <li><img width="25px" src="../images/gallery9.avif"/></li>
-            </ul>
+            
+            <li><img  src="../images/gallery2.jpg"/></li>
+            <li><img  src="../images/gallery3.jpg"/></li>
+            <li><img  src="../images/gallery4.jpg"/></li>
+            <li><img  src="../images/gallery5.jpg"/></li>
+            <li><img  src="../images/gallery6.jpg"/></li>
+            <li><img  src="../images/gallery7.jpg"/></li>
+            <li><img  src="../images/gallery8.jpg"/></li>
+            <li><img  src="../images/gallery9.jpeg"/></li>
+            <li><img  src="../images/gallery10.jpg"/></li>
+            <li><img  src="../images/gallery3.jpg"/></li>
+            
         </section>
 
     </main>
     <footer>
-        <ul>      
-            <li><i class="fab fa-whatsapp"></i></li>
-            <li><i class="fab fa-linkedin"></i></li>
-            <li><i class="fab fa-facebook"></i></li>
+        <ul class="social-icons">      
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
-        &copy; Derechos Reservados
+        <p>&copy; 2024 InstaPIC Company</p>
     </footer>
+
+ 
 </body>
 </html>
