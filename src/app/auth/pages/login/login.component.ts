@@ -26,9 +26,7 @@ export class LoginComponent {
 
   }
 
-
   onLogin(){
-    alert('Hola');
     
     let userName = this.loginForm.value.userName;
     let password = this.loginForm.value.password;
