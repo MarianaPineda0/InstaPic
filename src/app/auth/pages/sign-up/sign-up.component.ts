@@ -20,9 +20,10 @@ export class SignUpComponent {
     rePassword: ['',[Validators.required]]
   } );
 
-  userService = new UserService();
+  
+  
 
-  constructor(private fb:FormBuilder, private router:Router){
+  constructor(private fb:FormBuilder, private router:Router, private userService:UserService){
 
   }
 
@@ -32,7 +33,7 @@ export class SignUpComponent {
     if(!this.signUpForm.valid){
       Swal.fire({
           title: "Registrar usuario",
-          text: "Por favor, complete todos los campos",
+          text: "Por favor complete todos los campos correctamente",
           icon: "error",
       });
       return;
@@ -45,7 +46,11 @@ export class SignUpComponent {
 
     // Verificación password y repassword
     if(password !== rePassword){
-      alert('Las contraseñas no coinciden');
+      Swal.fire({
+        title: "Registrar usuario",
+        text: "Las contraseñas no coinciden",
+        icon: "error",
+      });
       return;
     }
 
@@ -57,12 +62,10 @@ export class SignUpComponent {
       this.router.navigateByUrl('/home');
     }else{
       Swal.fire({
-        text: "Por favor, complete todos los campos",
-        icon: "info"
-      
+        title: "Registrar usuario",
+        text: response.message,
+        icon: "error"
       });
     }
-
   }
-
 }

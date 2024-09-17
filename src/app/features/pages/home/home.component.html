@@ -2,37 +2,38 @@
 
     <div>
         <img src="/assets/images/avatar.jpg" alt="avatar"/>
-        <span id="userName">Juana Pérez</span> 
+        <span id="userName">{{currentUser.email}}</span> 
     </div>
 
     <div>
-        <span>15</span>
+        <span>{{galleryItems().length}}</span>
         <span>publicaciones</span>
     </div>
 
     <div>
-        <span>100</span>
+        <span>{{followers}}</span>
         <span>Seguidores</span>
     </div>
 
     <div>
-        <span>50</span>
+        <span>{{requests}}</span>
         <span>Solicitudes</span>
     </div>
 
 </section>
 
 <section id="gallery">
-    
-    <li><img  src="/assets/images/gallery2.jpg"/></li>
-    <li><img  src="/assets/images/gallery3.jpg"/></li>
-    <li><img  src="/assets/images/gallery4.jpg"/></li>
-    <li><img  src="/assets/images/gallery5.jpg"/></li>
-    <li><img  src="/assets/images/gallery6.jpg"/></li>
-    <li><img  src="/assets/images/gallery7.jpg"/></li>
-    <li><img  src="/assets/images/gallery8.jpg"/></li>
-    <li><img  src="/assets/images/gallery9.jpeg"/></li>
-    <li><img  src="/assets/images/gallery10.jpg"/></li>
-    <li><img  src="/assets/images/gallery3.jpg"/></li>
+
+    <div class="gallery-item" *ngFor="let item of galleryItems()">
+    <!-- En cada iteración cambia la ruta y va a la siguiente imagen -->
+
+        <img [src]="item.url"/>
+
+        <div class="comments">
+            <input type="text" (change)="onAddComment($event, item.id)" />
+            <a (click)="onViewComments(item.comments)"><i class="fas fa-comments"></i></a>
+            <a (click)="onDelete(item.id)"><i class="fas fa-trash-alt"></i></a>
+        </div>
+    </div>
     
 </section>
