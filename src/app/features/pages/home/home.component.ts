@@ -34,7 +34,7 @@ export class HomeComponent {
   
 
   constructor(private userService: UserService){
-      this.currentUser = userService.getUser(); 
+      this.currentUser = this.userService.getUser(); 
   }
 
   onDelete(id:number){
@@ -83,8 +83,5 @@ export class HomeComponent {
     })
 
   }
-
-
-
 
 }

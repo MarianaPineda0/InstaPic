@@ -1,18 +1,15 @@
 <header>
-@if(false) {
-    <h1>InstaPIC</h1>
-}@else {
+    @if(this.user().userName) { 
     <nav>        
         <ul>
-            <li>InstaPIC</li>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="#">Mi perfil</a></li>
-            <li><a href="#">Subir fotos</a></li>
-            <li><a href="#">Buscar</a></li>
-            <li><a href="#">Nueva publicación</a></li>
-            <li><a [routerLink]="['/login']">Cerrar sesión</a></li>
+            <li><a [routerLink]="['/home']">Inicio</a></li>
+            <li><a [routerLink]="['/profile']">Mi perfil</a></li>
+            <li><a [routerLink]="['/search']">Buscar</a></li>
+            <li><a [routerLink]="['/new-post']">Nueva publicación</a></li>
+            <li><a (click)="logout()">Cerrar sesión</a></li>
         </ul>
     </nav>
-
-}
+    }@else{
+        <h1>InstaPIC</h1>
+    }
 </header>

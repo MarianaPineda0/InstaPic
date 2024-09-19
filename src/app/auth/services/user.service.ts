@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { User } from '../interfaces/user.interface';
 import { LoginResponse, SignUpResponse } from '../interfaces/login-response.interface';
-
+import { GalleryItem } from '../../features/interfaces/gallery-item.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,12 @@ export class UserService {
     }
     this.setUser(user);
     return {success:true}
+  }
+
+  logout(){
+    this.currentUser.set({userName: '', password:'', email:''})
+    localStorage.removeItem('userLogged');
+
   }
 
   register(user: User): SignUpResponse{
@@ -59,11 +65,11 @@ export class UserService {
     if(!this.currentUser().userName){
       const userSrt = localStorage.getItem('userLogged')
       if(userSrt){
-        const userLoged: User = JSON.parse(userSrt);
-        this.currentUser.set(userLoged);
+        const userLogged: User = JSON.parse(userSrt);
+        this.currentUser.set(userLogged);
       }
     }
-    return this.currentUser();
+    return this.currentUser;
   }
 
 
