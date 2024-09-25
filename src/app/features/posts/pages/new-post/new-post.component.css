@@ -1,0 +1,29 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+input{
+    display: none;
+}
+
+label{
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #fb8500;
+
+}
+
+label:hover{
+    background-color: #d00000;
+}
+
+img{
+    width: 40%;
+    object-fit: cover;
+}

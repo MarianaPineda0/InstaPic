@@ -16,28 +16,19 @@ export class HomeComponent {
 
   followers = 5;
   requests: number = 250; // redundante, si se le asigna valor de una, no poner tipo
+  profilePhoto = ''
   
+  user;
   
-  currentUser;
-  
-  galleryItems = signal<GalleryItem[]>([
-    {id:1, url:"/assets/images/gallery2.jpg", comments:[]},
-    {id:2, url:"/assets/images/gallery3.jpg", comments:[]},
-    {id:3, url:"/assets/images/gallery4.jpg", comments:[]},
-    {id:4, url:"/assets/images/gallery5.jpg", comments:[]},
-    {id:5, url:"/assets/images/gallery6.jpg", comments:[]},
-    {id:6, url:"/assets/images/gallery7.jpg", comments:[]},
-    {id:7, url:"/assets/images/gallery8.jpg", comments:[]},
-    {id:8, url:"/assets/images/gallery9.jpeg", comments:[]},
-    {id:9, url:"/assets/images/gallery10.jpg", comments:[]}
-  ]);
+  galleryItems = signal<GalleryItem[]>([]);
   
 
   constructor(private userService: UserService){
-      this.currentUser = this.userService.getUser(); 
+      this.user = userService.getUser();
+      this.galleryItems.set(this.userService.getGallery(this.user().userName));
   }
 
-  onDelete(id:number){
+  onDelete(id:string){
     Swal.fire({
       title: "¿Está seguro de que desea eliminar la imagen?",
       icon: "warning",
@@ -49,24 +40,31 @@ export class HomeComponent {
       cancelButtonText: "No"
     }).then((result) => {
       if (result.isConfirmed) {
+        Swal.fire('Imagen eliminada', '', 'success')
         this.galleryItems.update(items=> items.filter(item=>item.id !== id));
+        this.userService.updateGalleryItem(this.galleryItems(), this.user().userName)
+      }else if (result.isDismissed) {
+        Swal.fire('Operación cancelada', '', 'info')
       }
     });
 
   }
 
-  onAddComment(event: Event, id: number) {
-    const input = event.target as HTMLInputElement; //Otra forma de castear (as)
-    const newComment = input.value;
-
-    if(newComment){
-      this.galleryItems.update(items=> {
-        let selected = items.find(item=>item.id === id)
-        selected!.comments = [...selected!.comments, newComment];
-        return items;
-      });
+ 
+  onAddComment(event: Event, id:string){
+    const input = event.target as HTMLInputElement
+    if(!input.value){
+      return;
     }
-    input.value='';
+    this.galleryItems.update(items => {
+      let selected = items.find(item => item.id === id)
+      if (selected){
+        selected!.comments = [...selected!.comments, input.value]
+      }
+      return items
+    })
+    this.userService.updateGalleryItem(this.galleryItems(),this.user().userName)
+    input.value = ''
   }
 
   onViewComments(comments:string[]){

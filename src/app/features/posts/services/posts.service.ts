@@ -15,18 +15,20 @@ export class PostsService {
       environment.supabaseConfig.apikey);
   }
 
-  async uploadFile(file: File, userName: string, fileName: string){
-    file.name;
+  async uploadFile(file: File, fileName: string, folderName: string='base', bucket: string){
     
-    const { data, error } = await this.supabase.storage.from('instapic').upload(`${userName}/${fileName}`, file)
+    const { error } = await this.supabase.storage.from(bucket).upload(`${folderName}/${fileName}`, file)
+   
     if (error) {
       console.log(error)
-      // Handle error;
-    }else{
-    // Handle success;
-      console.log("data: " + data.fullPath);
+      throw error;
     }
-
-    //const resp  = await this.supabase.storage.from('instapic').getPublicUrl(`${userName}/${fileName}`);
+    const { data} = await this.supabase.storage.from(bucket).getPublicUrl(`${folderName}/${fileName}`)
+    return data.publicUrl;
   }
+    
 }
+    
+    
+
+   

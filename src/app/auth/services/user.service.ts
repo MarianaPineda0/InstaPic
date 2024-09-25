@@ -72,9 +72,33 @@ export class UserService {
     return this.currentUser;
   }
 
+  saveGalleryItem(galleryItem: GalleryItem, userName: string){
+    let gallery = this.getGallery(userName)
+    gallery = [...gallery, galleryItem]
+    localStorage.setItem(`gallery-${userName}`, JSON.stringify(gallery))
+  }
+
+  getGallery(userName:string){
+    let galleryStr = localStorage.getItem(`gallery-${userName}`)
+    let gallery:GalleryItem[] = [] 
+    if (galleryStr){
+      gallery = JSON.parse(galleryStr) 
+    }
+    return gallery
+  }
+
+  updateGalleryItem(gallery: GalleryItem[], userName:string){
+    localStorage.setItem(`gallery-${userName}`, JSON.stringify(gallery))
+  }
 
 
+  saveProfile(userName:string){
+    // localStorage.setItem(`profile-${username}` )
+  }
 
+  getProfile(userName:string){
+    localStorage.getItem(`profile-${userName}`)
+  }
 
 
 }

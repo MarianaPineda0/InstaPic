@@ -1,8 +1,8 @@
 <section id="profile">
 
     <div>
-        <img src="/assets/images/avatar.jpg" alt="avatar"/>
-        <span id="userName">{{currentUser().userName}}</span> 
+        <img [src]="profilePhoto || 'avatar.jpg'" alt="avatar" />
+        <span id="userName">{{user().userName}}!</span> 
     </div>
 
     <div>
